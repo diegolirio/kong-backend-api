@@ -1,7 +1,7 @@
-package br.com.wiskritorio.backendbarbershop.user.application.getall
+package com.kongbarber.kongbackendapi.user.application
 
-import br.com.wiskritorio.backendbarbershop.user.application.gateway.GetAllUsersGateway
-import br.com.wiskritorio.backendbarbershop.user.shared.dto.UserResponse
+import com.kongbarber.kongbackendapi.user.application.gateway.GetAllUsersGateway
+import com.kongbarber.kongbackendapi.user.shared.dto.UserResponse
 import org.springframework.stereotype.Service
 import reactor.core.publisher.Flux
 

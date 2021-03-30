@@ -1,10 +1,10 @@
-package br.com.wiskritorio.backendbarbershop
+package com.kongbarber.kongbackendapi
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest
-class BackendBarberShopApplicationTests {
+class ApplicationTests {
 
 	@Test
 	fun contextLoads() {

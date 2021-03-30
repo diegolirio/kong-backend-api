@@ -1,11 +1,11 @@
-package br.com.wiskritorio.backendbarbershop
+package com.kongbarber.kongbackendapi
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class BackendBarberShopApplication
+class Application
 
 fun main(args: Array<String>) {
-	runApplication<BackendBarberShopApplication>(*args)
+	runApplication<Application>(*args)
 }

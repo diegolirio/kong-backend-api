@@ -4,4 +4,4 @@ spring:
     active: default, local
   data:
     mongodb:
-      uri: mongodb+srv://lirio:tech@cluster0.rzlbg.mongodb.net/wiskritorio?authSource=admin&replicaSet=atlas-p3dgbp-shard-0&w=majority&readPreference=primary&appname=MongoDB%20Compass&retryWrites=true&ssl=true
+      uri: mongodb+srv://kongdev:kongdev21@cluster0.br4nt.mongodb.net/kongdev_db?retryWrites=true&w=majority
