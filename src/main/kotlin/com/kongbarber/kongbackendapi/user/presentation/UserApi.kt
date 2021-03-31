@@ -19,6 +19,7 @@ class UserApi {
             // GET("", userHandle::getAll)
             GET("") { userHandle.getAll() }
             POST("", userHandle::createUser)
+            GET("/{_id}", userHandle::getById)
         }
     }
 }
