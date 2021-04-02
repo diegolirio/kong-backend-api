@@ -5,6 +5,7 @@ import com.kongbarber.kongbackendapi.user.shared.dto.ConfigurationResponse
 import com.kongbarber.kongbackendapi.user.shared.dto.UserRequest
 import com.kongbarber.kongbackendapi.user.shared.dto.UserResponse
 import com.kongbarber.kongbackendapi.user.shared.dto.UserTypeResponse
+import org.bson.types.ObjectId
 
 fun User.toUserResponse(): UserResponse =
     UserResponse(
@@ -17,7 +18,10 @@ fun User.toUserResponse(): UserResponse =
         disabled = this.disabled,
         type = UserTypeResponse.valueOf(this.type.name),
         ratedUs = this.ratedUs,
-        password = this.password
+        password = this.password,
+        company = this.company!!.toHexString(),
+        createdAt = this.createdAt!!,
+        updatedAt = this.updatedAt!!
     )
 
 fun UserRequest.toUser(): User =
@@ -26,5 +30,6 @@ fun UserRequest.toUser(): User =
         username = this.username,
         email = this.email,
         phone_number = this.phone_number,
-        password = this.password
+        password = this.password,
+        company = ObjectId(this.company)
     )

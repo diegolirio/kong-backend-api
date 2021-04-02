@@ -3,7 +3,7 @@ package com.kongbarber.kongbackendapi.user.presentation
 import com.kongbarber.kongbackendapi.user.shared.dto.UserRequest
 import com.kongbarber.kongbackendapi.user.shared.dto.UserResponse
 import com.kongbarber.kongbackendapi.user.shared.dto.UserTypeResponse
-import org.hamcrest.Matchers
+import org.bson.types.ObjectId
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
@@ -16,6 +16,12 @@ import org.springframework.test.web.reactive.server.WebTestClient
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 //@ExtendWith(SpringExtension::class)
 class UserApiIntegrationTests {
+
+    /*
+    TODO
+        1. Gerar Automatic createAt and updateAt -> Ex: https://gitlab.com/diegolirio/logistic-product/-/blob/homolog/src/main/java/com/logistic/product/orm/AbstractDocument.java
+        2. Password Criptografado com jwt
+     */
 
     //    @BeforeAll
     //    fun setUp() {
@@ -66,13 +72,17 @@ class UserApiIntegrationTests {
     fun `get by id - valid fields generated automatic`() {
         val client = WebTestClient.bindToRouterFunction(UserApi().route(userHandle)).build()
 
+        val pass = "$2a$10$/UGm8OOXEOr1E/fXtzKVxaeKU7ywlmU.1rGd0/HMLA9kDM12IRVl3y"
+        val COMPANY_ID = "603a5c8d94f99de4f91fc027"
+
         val userValuesObrigatorios =
             UserRequest(
                 name = "Diego",
                 username = "diego",
                 email = "diegolirio.dl@gmail.com",
                 phone_number = "(11) 96140-9798",
-                password = "123321"
+                password = pass,
+                company = COMPANY_ID
             )
 
 //                "username": "diego", => *
@@ -115,7 +125,7 @@ class UserApiIntegrationTests {
             .jsonPath("$.type").isEqualTo(UserTypeResponse.hairdresser.name)
             .jsonPath("$.ratedUs").isEqualTo(false)
             //.jsonPath("$.password", userValuesObrigatorios.password!!)
-            //.jsonPath("$.company").isNotEmpty
+            .jsonPath("$.company").isEqualTo("603a5c8d94f99de4f91fc027")
 
 
     }

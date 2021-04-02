@@ -16,7 +16,6 @@ class UserApi {
     ) = router {
 
         (API_USERS and accept(MediaType.APPLICATION_JSON)).nest {
-            // GET("", userHandle::getAll)
             GET("") { userHandle.getAll() }
             POST("", userHandle::createUser)
             GET("/{_id}", userHandle::getById)

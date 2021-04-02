@@ -1,7 +1,11 @@
 package com.kongbarber.kongbackendapi.user.shared.dto
 
-import com.kongbarber.kongbackendapi.user.infrastructure.repository.UserType
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties
+import com.fasterxml.jackson.databind.annotation.JsonSerialize
+import java.time.LocalDateTime
 
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonSerialize(include=JsonSerialize.Inclusion.NON_NULL)
 data class UserResponse(
     var _id: String? = null,
     var name: String? = null,
@@ -12,7 +16,10 @@ data class UserResponse(
     var configuration: ConfigurationResponse? = null,
     var disabled: Boolean? = null,
     var ratedUs: Boolean? = null,
-    var type: UserTypeResponse? = null
+    var type: UserTypeResponse? = null,
+    var company: String? = null,
+    var createdAt: LocalDateTime,
+    var updatedAt: LocalDateTime
 )
 
 data class ConfigurationResponse(
