@@ -3,7 +3,7 @@ package com.kongbarber.kongbackendapi.order.shared.dto
 import org.bson.types.ObjectId
 import java.time.LocalDateTime
 
-data class OrderResponse(
+data class OrderRequest(
     var _id: String? = null,
     var paymentType: PaymentType? = null,
     var services: List<Service>? = null,

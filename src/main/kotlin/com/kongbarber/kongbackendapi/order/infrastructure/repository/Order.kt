@@ -35,6 +35,7 @@ data class Order(
     )
 
     data class Customer(
-        var name: String? = null
+        var name: String? = null,
+        var phone_number: String? = null,
     )
 }

@@ -15,6 +15,7 @@ class OrderApi(
     fun routeOrder() = router {
         (ORDER_API and accept(MediaType.APPLICATION_JSON)).nest {
             GET("", orderHandler::getAll)
+            POST("", orderHandler::create)
         }
     }
 
